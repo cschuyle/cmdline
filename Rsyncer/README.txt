@@ -1,0 +1,1 @@
+Simple shell script used to keep two hard drives in-sync.  Idiosyncrosies exist due to my own usage pattern of several laptops and external hard drives, and the need to be timestamp-agnostic because of user headgap in the past.

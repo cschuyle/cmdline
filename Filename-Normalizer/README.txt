@@ -1,0 +1,1 @@
+Script designed to bring filenames down to a least common denominator between filesystems: case-insensitive, no accented characters.  Used mostly to rename iTunes-ripped CD directories for backup to other filsystems.

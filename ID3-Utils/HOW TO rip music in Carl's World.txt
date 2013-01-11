@@ -1,0 +1,25 @@
+HOW TO RIP, given the sorry state of tools, let's just use iTunes plus a bunch of scripts that I boiled up:
+
+set to rip to Music-Dump, AIFF.
+
+rip everything.
+
+set to rip to Music-VBR, MP3, VBR, 160bits, Medium.
+
+All the stuff you just ripped, Advanced / Create MP3 Version.
+
+Remove all that shit from library.
+
+file-name-normalizer.rb:
+* For Music-Dump
+* For Music-VBR
+- careful, it still doesn't correct for different case!  Might have to manually move.  Plus, it puts it in via artist and maybe that's more information than you wanted.  Organize the Dump and VBR the same.
+
+Add to library from new Music-VBR location.
+
+Move Music-Dump/* to Music-Dump in archive drive.
+
+rsync VBR to archive drive.
+
+... DONE!  Fuckn A.
+
