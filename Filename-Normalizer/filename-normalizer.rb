@@ -9,7 +9,17 @@ class String
   end
 
   def deaccent
-    self.normalize(:kd).gsub(/[^,.!+='"\sa-zA-Z0-9_\-\(\){}\[\];\&\#$%\^\*@]/,'')
+    self.gsub(/[^,.!+='"\sa-zA-Z0-9_\-\(\){}\[\];\&\#$%\^\*@]/,'')
+  end
+
+  def deparen
+    self.gsub(/[\(\)]+/, '_')
+  end
+
+  def dedot
+    parts = self.split(/\.+/)
+    return self if parts.size <= 2
+    return "#{parts[0..-2].join('_')}.#{parts[-1]}"
   end
 end
 
@@ -17,7 +27,11 @@ def recurse_tree(root_dir)
   Find.find root_dir do |path|
     dir = File.dirname path
     old_path = File.basename path
-    new_path = old_path.to_s.deaccent
+    new_path = old_path.to_s
+      .normalize(:kd)
+      .deaccent
+      .deparen
+      .dedot
     if old_path != new_path
       begin
         puts "#{dir}/#{new_path}"
